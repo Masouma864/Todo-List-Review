@@ -1,14 +1,13 @@
-// let todos = JSON.parse(localStorage.getItem("todos")) || [];
 // save todo
-
-import { todoInput, todos } from '../app.js';
+import todos from './storage.js';
 
 export default function saveTodo() {
+  const todoInput = document.querySelector('#newTodo');
   const todoValue = todoInput.value;
 
   // check if todo id empty
   const isEmpty = todoValue === '';
-  // check if duplicat
+  // check if duplicate
   const isDuplicate = todos.some(
     (todo) => todo.value.toUpperCase() === todoValue.toUpperCase(),
   );
@@ -25,7 +24,5 @@ export default function saveTodo() {
     };
     todos.push(todo);
     todoInput.value = '';
-    console.log(todos);
   }
 }
-console.log('hi');
